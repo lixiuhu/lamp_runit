@@ -64,7 +64,7 @@ RUN set -x && \
     ln -sf /etc/php/7.1/mods-available/redis.ini /etc/php/7.1/fpm/conf.d/redis.ini
 
 ### add php other extension
-ADD extfile/ /var/www/phpext/
+ADD php-extension/ /var/www/phpext/
 RUN chmod a+x /var/www/phpext/*
 
 ###### change php.ini ######
@@ -106,7 +106,7 @@ RUN rm /etc/nginx/sites-enabled/default && \
     mkdir /etc/nginx/ssl
 
 ###### runit ######
-ADD runit /etc/service/
+ADD runit/ /etc/service/
 RUN chmod +x /etc/service/supervisor/run
 
 ###### clean up #########
